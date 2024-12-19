@@ -21,25 +21,21 @@ public class pg_120890 {
 
 
     public int pg_120890_(int[] array, int n) {
-        int[] num = new int[array.length + 1];
-        for (int i = 0; i < array.length; i++) {
-            num[i] = array[i];
-        }
-        num[array.length + 1] = n;
         Arrays.sort(array);
-        for(int i = 0; i<num.length; i++){
-            if(n==num[i]){
-                if(n==num[num.length]){
-                    return num[i-1];
-                } else if (n==num[0]) {
-                    return num[i+1];
-                } else {
-                    int a = Math.abs(n-num[i+1]);
-                    int b = Math.abs(n-num[i-1]);
-                    return a < b ? a : b;
-                }
-            }
+        Stack<Integer> stack = new Stack<Integer>();
+        for (int a:array) {
+            stack.push(a);
         }
-        return 1;
+
+        while (!stack.empty()){
+            if(stack.contains(n)) return n;
+            Integer last = stack.pop();
+            Integer mid = stack.pop();
+            if(mid.equals(n)){
+
+            }
+
+        }
+
     }
 }
